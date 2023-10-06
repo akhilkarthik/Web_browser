@@ -11,13 +11,16 @@ class BrowserWindow(QMainWindow):
         self.browser.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         self.url_input = QLineEdit()
+
         self.go_button = QPushButton("Go")
         self.go_button.clicked.connect(self.load_url)
+        
+
 
         # Create navigation buttons
-        self.refresh_button = QPushButton("Refresh")
-        self.back_button = QPushButton("Back")
-        self.forward_button = QPushButton("Forward")
+        self.refresh_button = QPushButton("R")
+        self.back_button = QPushButton("<<")
+        self.forward_button = QPushButton(">>")
 
         # Connect navigation button actions
         self.refresh_button.clicked.connect(self.refresh_page)
@@ -29,6 +32,7 @@ class BrowserWindow(QMainWindow):
         self.nav_toolbar.addWidget(self.refresh_button)
         self.nav_toolbar.addWidget(self.back_button)
         self.nav_toolbar.addWidget(self.forward_button)
+
 
         self.central_widget = QWidget()
         self.central_layout = QVBoxLayout()
@@ -42,6 +46,28 @@ class BrowserWindow(QMainWindow):
         self.central_layout.addLayout(self.address_layout)
         self.central_layout.addWidget(self.nav_toolbar)
         self.central_layout.addWidget(self.browser)
+
+
+        #aesthetics
+        self.central_widget.setStyleSheet("background-color: #f0f0f0;")
+        self.go_button.setStyleSheet("background-color: #007acc; color: white; border: 1px solid #005bb5;")
+        self.url_input.setStyleSheet("background-color: white; border: 1px solid #ccc; border-radius: 5px;")
+        self.nav_toolbar.setStyleSheet("background-color: #f0f0f0; border-bottom: 1px solid #ccc;")
+        self.url_input.setStyleSheet("font-size: 14px; color: #333;")
+        self.refresh_button.setStyleSheet("background-color: #007acc; color: white; border: 1px solid #005bb5;")
+        self.back_button.setStyleSheet("background-color: #007acc; color: white; border: 1px solid #005bb5;")
+        self.forward_button.setStyleSheet("background-color: #007acc; color: white; border: 1px solid #005bb5;")
+        self.go_button.setFixedSize(50, 30)
+        self.refresh_button.setFixedSize(30, 30)
+        self.back_button.setFixedSize(30, 30)
+        self.forward_button.setFixedSize(30, 30)
+
+
+
+
+
+
+        
 
         self.setCentralWidget(self.central_widget)
 
