@@ -18,13 +18,14 @@ class BrowserWindow(QMainWindow):
 
 
         # Create navigation buttons
-        self.refresh_button = QPushButton("R")
+        
         self.back_button = QPushButton("<<")
+        self.refresh_button = QPushButton("R")
         self.forward_button = QPushButton(">>")
 
         # Connect navigation button actions
-        self.refresh_button.clicked.connect(self.refresh_page)
         self.back_button.clicked.connect(self.browser.back)
+        self.refresh_button.clicked.connect(self.refresh_page)
         self.forward_button.clicked.connect(self.browser.forward)
 
         # Create a toolbar for navigation buttons
@@ -54,13 +55,11 @@ class BrowserWindow(QMainWindow):
         self.url_input.setStyleSheet("background-color: white; border: 1px solid #ccc; border-radius: 5px;")
         self.nav_toolbar.setStyleSheet("background-color: #f0f0f0; border-bottom: 1px solid #ccc;")
         self.url_input.setStyleSheet("font-size: 14px; color: #333;")
-        self.refresh_button.setStyleSheet("background-color: #007acc; color: white; border: 1px solid #005bb5;")
-        self.back_button.setStyleSheet("background-color: #007acc; color: white; border: 1px solid #005bb5;")
-        self.forward_button.setStyleSheet("background-color: #007acc; color: white; border: 1px solid #005bb5;")
+        self.back_button.setStyleSheet("background-color: #C1CDC1; color: black; ")
+        self.refresh_button.setStyleSheet("background-color: #C1CDC1; color: black; ")
+        self.forward_button.setStyleSheet("background-color: #C1CDC1; color: black; ")
         self.go_button.setFixedSize(50, 30)
-        self.refresh_button.setFixedSize(30, 30)
-        self.back_button.setFixedSize(30, 30)
-        self.forward_button.setFixedSize(30, 30)
+        
 
 
 
